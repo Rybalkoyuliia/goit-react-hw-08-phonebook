@@ -1,36 +1,25 @@
-import { Filter } from './Filter/Filter';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import {
-  StyledMainTitle,
-  StyledMainWrapper,
-  StyledTitle,
-  StyledWrapper,
-} from './App.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchDataThunk } from './redux/operations';
-import { selectIsLoading } from './redux/slice';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import Navigation from '../pages/Navigation/Navigation';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
+import Phonebook from '../pages/Phonebook/Phonebook';
+import NotFound from '../pages/NotFound/NotFound';
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchDataThunk());
-  }, [dispatch]);
-  const loading = useSelector(selectIsLoading);
   return (
-    <StyledMainWrapper>
-      <StyledMainTitle>My Phonebook</StyledMainTitle>
-      <StyledWrapper>
-        <ContactForm />
-      </StyledWrapper>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigation />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="phonebook" element={<Phonebook />} />
 
-      <StyledWrapper>
-        <StyledTitle>Contacts</StyledTitle>
-        <Filter />
-      </StyledWrapper>
-      {loading ? <h2>Loading...</h2> : <ContactList />}
-    </StyledMainWrapper>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 
