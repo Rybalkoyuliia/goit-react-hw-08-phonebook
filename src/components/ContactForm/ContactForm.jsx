@@ -6,10 +6,10 @@ import {
   StyledLabel,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'components/redux/slice';
 import InputMask from 'react-input-mask';
 import { useState } from 'react';
-import { addDataThunk } from 'components/redux/operations';
+import { selectContacts } from '../../redux/contacts/slice';
+import { addDataThunk } from '../../redux/contacts/operations';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -31,7 +31,7 @@ const ContactForm = () => {
     if (contacts.find(person => person.name === name)) {
       alert(`${name} is already in contacts!`);
       return;
-    } else if (contacts.find(person => person.phone === phone)) {
+    } else if (contacts.find(person => person.number === phone)) {
       alert(`${name}'s number "${phone}" is already in contacts!`);
       return;
     } else if (!validatePhoneNumber(e)) {
@@ -63,11 +63,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <StyledForm
-        onSubmit={() => {
-          handleSubmit();
-        }}
-      >
+      <StyledForm onSubmit={handleSubmit}>
         <LeftStyledList>
           <StyledLabel>
             Name

@@ -25,9 +25,10 @@ const slice = createSlice({
         state.contacts.error = null;
       })
       .addCase(fetchDataThunk.fulfilled, (state, { payload }) => {
-        state.contacts.items = payload.toSorted((a, b) =>
-          a.name.localeCompare(b.name)
-        );
+        state.contacts.items = payload;
+        //   .toSorted((a, b) =>
+        //   a.name.localeCompare(b.name)
+        // );
         state.contacts.isLoading = false;
       })
       .addCase(fetchDataThunk.rejected, (state, { payload }) => {

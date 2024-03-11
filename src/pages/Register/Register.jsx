@@ -1,5 +1,5 @@
 import Form from 'components/Form/Form';
-import { registerThunk } from 'components/redux/auth/authOperations';
+import { registerThunk } from '../../redux/auth/authOperations';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

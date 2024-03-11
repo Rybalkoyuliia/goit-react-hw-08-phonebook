@@ -5,22 +5,24 @@ import {
   StyledTitle,
   StyledWrapper,
 } from './Phonebook.styled';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { fetchDataThunk } from '../../redux/contacts/operations';
+import { selectIsLoading } from '../../redux/contacts/slice';
+import { logoutThunk } from '../../redux/auth/authOperations';
 import ContactForm from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import ContactList from 'components/ContactList/ContactList';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDataThunk } from 'components/redux/operations';
-import { selectIsLoading } from 'components/redux/slice';
-import { logoutThunk } from 'components/redux/auth/authOperations';
-import { useNavigate } from 'react-router-dom';
+import { setIsLoggedIn } from '../../redux/auth/authSlice';
 
 const Phonebook = () => {
   const navigate = useNavigate();
-
+  const user = useSelector(setIsLoggedIn);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchDataThunk());
-  }, [dispatch]);
+    user && dispatch(fetchDataThunk());
+  }, [dispatch, user]);
   const loading = useSelector(selectIsLoading);
 
   return (
