@@ -41,8 +41,7 @@ const ContactForm = () => {
       dispatch(
         addDataThunk({
           name,
-          phone,
-          createdAt: new Date().toLocaleTimeString(),
+          number: phone,
         })
       );
     }
@@ -65,8 +64,8 @@ const ContactForm = () => {
   return (
     <>
       <StyledForm
-        onSubmit={e => {
-          handleSubmit(e);
+        onSubmit={() => {
+          handleSubmit();
         }}
       >
         <LeftStyledList>

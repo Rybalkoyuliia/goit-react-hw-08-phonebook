@@ -16,7 +16,6 @@ const Navigation = () => {
         Don't have any account yet? Please{' '}
         <NavLink to="/register">register</NavLink>
       </p>
-      <NavLink to="/phonebook">Contacts</NavLink>
     </div>
   );
 };

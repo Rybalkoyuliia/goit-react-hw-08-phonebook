@@ -1,22 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const Form = () => {
+const Form = ({ onDataSubmit, formType }) => {
   const { register, reset, handleSubmit } = useForm();
   const submit = data => {
-    console.log(data);
+    onDataSubmit(data);
     reset();
   };
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
-        <label>
-          <input
-            {...register('name')}
-            type="text"
-            placeholder="Enter your name"
-          />
-        </label>
+        {formType === 'register' && (
+          <label>
+            <input
+              {...register('name')}
+              type="text"
+              placeholder="Enter your name"
+            />
+          </label>
+        )}
         <label>
           <input
             {...register('email')}
@@ -31,7 +33,9 @@ const Form = () => {
             placeholder="Enter your password"
           />
         </label>
-        <button type="submit">GO!</button>
+        <button type="submit">
+          {formType === 'register' ? 'Register' : 'Login'}
+        </button>
       </form>
     </div>
   );

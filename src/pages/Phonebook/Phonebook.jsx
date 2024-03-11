@@ -11,8 +11,12 @@ import ContactList from 'components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDataThunk } from 'components/redux/operations';
 import { selectIsLoading } from 'components/redux/slice';
+import { logoutThunk } from 'components/redux/auth/authOperations';
+import { useNavigate } from 'react-router-dom';
 
 const Phonebook = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDataThunk());
@@ -22,6 +26,14 @@ const Phonebook = () => {
   return (
     <StyledMainWrapper>
       <StyledMainTitle>My Phonebook</StyledMainTitle>
+      <button
+        onClick={() => {
+          dispatch(logoutThunk());
+          navigate('/');
+        }}
+      >
+        logout
+      </button>
       <StyledWrapper>
         <ContactForm />
       </StyledWrapper>
