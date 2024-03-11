@@ -7,6 +7,9 @@ export const StyledMainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* @media (min-width: 768px) {
+    background-color: red;
+  } */
 `;
 
 export const StyledWrapper = styled.div`
@@ -21,7 +24,9 @@ export const StyledMainTitle = styled.h1`
   color: rgb(255, 255, 255);
   font-size: 36px;
   margin: 0;
-  margin-bottom: 30px;
+  /* @media (min-width: 768px) {
+    color: pink;
+  } */
 `;
 
 export const StyledContainer = styled.div`
@@ -35,3 +40,26 @@ export const StyledTitle = styled.h2`
 `;
 
 export const StyledBtns = styled.ul``;
+
+export const StyledLogoutBtn = styled.button`
+  background-color: rgb(253, 135, 6);
+  border: none;
+  height: 25px;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+  font-size: 12px;
+  font-style: italic;
+  width: 76px;
+  margin: 0 auto;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgb(253, 135, 6);
+    border: 2px solid rgb(253, 135, 6);
+  }
+
+  &:active {
+    background-color: orangered;
+  }
+`;

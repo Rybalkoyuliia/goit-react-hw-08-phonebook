@@ -67,7 +67,12 @@ const ContactForm = () => {
         <LeftStyledList>
           <StyledLabel>
             Name
-            <StyledInput type="text" name="name" required />
+            <StyledInput
+              type="text"
+              name="name"
+              placeholder="Enter the name..."
+              required
+            />
           </StyledLabel>
           <StyledLabel>
             Number

@@ -1,22 +1,30 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  StyledMainNavTitle,
+  StyledNavDirections,
+  StyledNavDirectionsWrapper,
+  StyledNavWrapper,
+} from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <div>
-      <h2>
+    <StyledNavWrapper>
+      <StyledMainNavTitle>
         Welcome to <br />
         <span>My Phonebook</span>{' '}
-      </h2>
-      <p>
-        Please, <NavLink to="/login">login</NavLink> to access your list of
-        contacts
-      </p>
-      <p>
-        Don't have any account yet? Please{' '}
-        <NavLink to="/register">register</NavLink>
-      </p>
-    </div>
+      </StyledMainNavTitle>
+      <StyledNavDirectionsWrapper>
+        <StyledNavDirections>
+          Please, <NavLink to="/login">login</NavLink> to access your list of
+          contacts
+        </StyledNavDirections>
+        <StyledNavDirections>
+          Don't have any account yet? Please{' '}
+          <NavLink to="/register">register</NavLink>
+        </StyledNavDirections>
+      </StyledNavDirectionsWrapper>
+    </StyledNavWrapper>
   );
 };
 

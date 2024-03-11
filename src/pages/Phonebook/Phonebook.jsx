@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {
+  StyledLogoutBtn,
   StyledMainTitle,
   StyledMainWrapper,
   StyledTitle,
@@ -28,14 +29,14 @@ const Phonebook = () => {
   return (
     <StyledMainWrapper>
       <StyledMainTitle>My Phonebook</StyledMainTitle>
-      <button
+      <StyledLogoutBtn
         onClick={() => {
           dispatch(logoutThunk());
           navigate('/');
         }}
       >
-        logout
-      </button>
+        Logout
+      </StyledLogoutBtn>
       <StyledWrapper>
         <ContactForm />
       </StyledWrapper>

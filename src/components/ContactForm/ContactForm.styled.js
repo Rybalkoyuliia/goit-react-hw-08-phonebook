@@ -5,7 +5,7 @@ export const StyledForm = styled.form`
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 15px;
   width: 100%;
 `;
@@ -45,5 +45,11 @@ export const StyledButton = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: white;
+    color: rgb(253, 135, 6);
+  }
+
+  &:active {
+    background-color: orangered;
   }
 `;
